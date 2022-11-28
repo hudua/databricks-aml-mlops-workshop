@@ -20,7 +20,6 @@ Run the delta table and feature engineering / modeling scripts to
 * Create delta table and enable SQL-queries
 * Run feature engineering and modeling
 * Register model with Azure ML and mlflow
-* Even save the ML-ready dataset back in the data lake so Azure ML can be used for modeling too
 
 #### Step 4: Azure DevOps
 See the example DevOps pipeline for how to create a model training and model deployment pipeline. Here is a really good example for using the Databricks APIs: https://github.com/crflynn/databricks-api
