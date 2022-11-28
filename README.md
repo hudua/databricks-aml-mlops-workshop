@@ -10,8 +10,10 @@ Set-up common data lake structure to
 Create a Databricks cluster with runtime ```10.4 LTS (includes Apache Spark 3.2.1, Scala 2.12)``` and ensure that these two libraries are installed:
 * ```azureml-core```
 * ```azureml-mlflow```
+
 You will want to create a mount point from Databricks to the data lake using the ```utils/mount.py``` example using access key for blob storage option (simplest option without any other dependencies).
-You will want to set up Repo integration with Azure Repos and Databricks Repos: https://learn.microsoft.com/en-us/azure/databricks/repos/repos-setup
+
+You will also want to set up Repo integration with Azure Repos and Databricks Repos: https://learn.microsoft.com/en-us/azure/databricks/repos/repos-setup
 
 #### Step 3: Spark analysis
 Run the delta table and feature engineering / modeling scripts to
