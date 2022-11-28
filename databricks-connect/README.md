@@ -6,3 +6,4 @@ Then you can test using
 ```
 databricks-connect test
 ```
+Here is a good reference: https://learn.microsoft.com/en-us/azure/databricks/dev-tools/databricks-connect
