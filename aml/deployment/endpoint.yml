@@ -1,4 +1,3 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
 name: mlops-hudua-134-alias
 auth_mode: key
-public_network_access: disabled
