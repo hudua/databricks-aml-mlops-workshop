@@ -9,3 +9,8 @@ Go to Azure ML and create a dataset referencing this data:
 * Browse and pick the ml ready dataset saved from Azure Databricks
 * You should be able to preview it and can verify
 * Create the dataset
+
+Now, please proceed for model training using three ways:
+* Through a notebook (Python code approach), and of course can try VS Code option as well. Please connect to Azure ML directly, without VPN
+* Automated ML (no-code)
+* Designer (drag-and-drop)
