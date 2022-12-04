@@ -21,4 +21,16 @@ LOCATION '/mnt/delta/power_gen_data'
 
 ```
 
-Please do the same for the weather data and now you should have two tables ```power_gen_data``` and ```weather_data```.
+Please do the same for the weather data and now you should have two tables ```power_gen_data``` and ```weather_data```. 
+
+Based on your discovery with the data domain experts, the best way to join on these tables is to use ```deviceid``` and ```datetimeint```. So here's a sample query:
+
+```
+%sql select x.date, x.deviceid, x.datetimeint, x.rpm, x.angle, x.power, x.maintenance, y.temperature, y.humidity, y.windspeed, y.winddirection from sample.power_gen_data x join sample.weather_data y on x.deviceid = y.deviceid and x.datetimeint = y.datetimeint
+```
+
+Now you are ready to save this dataset as a ML-ready dataset for modeling purposes using Azure ML!
+```
+spark.sql(' select x.date, x.deviceid, x.datetimeint, x.rpm, x.angle, x.power, x.maintenance, y.temperature, y.humidity, y.windspeed, y.winddirection from sample.power_gen_data x join sample.weather_data y on x.deviceid = y.deviceid and x.datetimeint = y.datetimeint').toPandas().to_csv('/dbfs/mnt/curated/ml_ready_power_weather.csv', index = False)
+```
+
