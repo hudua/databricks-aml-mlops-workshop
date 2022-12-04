@@ -56,8 +56,8 @@ print(abs_error)
 Then you can track this experiment in Azure ML:
 
 
-
-
+And finally you can then train the entire model and register the model
+```
 model = LinearRegression()
 
 model.fit(X,y)
