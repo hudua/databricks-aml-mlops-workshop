@@ -35,7 +35,7 @@ dataset = Dataset.get_by_name(ws, name='mldata')
 
 df = dataset.to_pandas_dataframe()
 
-X = np.array(df['humidity']).reshape(-1, 1)
+X = np.array(df[['humidity', 'temperature', 'windspeed']]).reshape(-1, 3)
 y = np.array(df['power']).reshape(-1, 1)
 model = LinearRegression()
 
