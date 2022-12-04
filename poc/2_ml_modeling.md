@@ -23,9 +23,9 @@ For the notebook version, this code should run in Azure ML Notebook:
 from sklearn.linear_model import LinearRegression
 from azureml.core import Workspace, Dataset, Model
 
-subscription_id = '7f7e7d61-990c-46bc-9dfd-4d6115ef04f6'
-resource_group = 'mlops'
-workspace_name = 'amlhudua'
+subscription_id = ''
+resource_group = ''
+workspace_name = ''
 
 ws = Workspace(subscription_id, resource_group, workspace_name,auth=msi_auth)
 
