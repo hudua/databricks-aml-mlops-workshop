@@ -22,6 +22,7 @@ For the notebook version, this code should run in Azure ML Notebook:
 ```
 from sklearn.linear_model import LinearRegression
 from azureml.core import Workspace, Dataset, Model
+import pickle
 
 subscription_id = ''
 resource_group = ''
