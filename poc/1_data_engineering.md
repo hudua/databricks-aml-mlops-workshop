@@ -8,6 +8,7 @@ As the first step of the PoC, you can upload these two datasets in the ```raw```
 Then you can use Azure Databricks to connect to these CSV files using the established mount point and create delta tables. Here is a quick code snippet:
 
 ```
+import pandas as pd
 df_power = pd.read_csv('/dbfs/mnt/raw/power_gen_data.csv')
 spark_df_power = spark.createDataFrame(df_power)
 spark_df_power.write.format('delta').partitionBy('deviceid').mode("overwrite").save('/mnt/delta/power_gen_data')
