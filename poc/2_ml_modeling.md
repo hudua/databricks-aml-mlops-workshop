@@ -27,7 +27,7 @@ subscription_id = ''
 resource_group = ''
 workspace_name = ''
 
-ws = Workspace(subscription_id, resource_group, workspace_name,auth=msi_auth)
+ws = Workspace(subscription_id, resource_group, workspace_name)
 
 dataset = Dataset.get_by_name(ws, name='mldata')
 
