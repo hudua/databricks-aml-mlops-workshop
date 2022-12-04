@@ -37,6 +37,27 @@ df = dataset.to_pandas_dataframe()
 
 X = np.array(df[['humidity', 'temperature', 'windspeed']]).reshape(-1, 3)
 y = np.array(df['power']).reshape(-1, 1)
+```
+
+You can first evaluate the model
+```
+from sklearn.model_selection import train_test_split
+eva_model = LinearRegression()
+
+X_train, X_test, Y_train, y_test = train_test_split(X, y, test_size = 0.3)
+
+eva_model.fit(X_train, Y_train)
+
+y_pred = eva_model.predict(X_test)
+abs_error = np.mean(np.abs(y_pred - y_test))
+print(abs_error)
+```
+
+Then you can track this experiment in Azure ML:
+
+
+
+
 model = LinearRegression()
 
 model.fit(X,y)
