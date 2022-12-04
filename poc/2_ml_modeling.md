@@ -54,7 +54,14 @@ print(abs_error)
 ```
 
 Then you can track this experiment in Azure ML:
-
+```
+import datetime
+exp = Experiment(ws, "WorkshopExperiment")
+run = exp.start_logging()
+run.log('Training Start Date', datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+run.log('AbsoluteError', abs_error)
+run.complete()
+```
 
 And finally you can then train the entire model and register the model
 ```
