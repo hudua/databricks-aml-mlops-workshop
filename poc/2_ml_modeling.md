@@ -14,3 +14,5 @@ Now, please proceed for model training using three ways:
 * Through a notebook (Python code approach), and of course can try VS Code option as well. Please connect to Azure ML directly, without VPN
 * Automated ML (no-code)
 * Designer (drag-and-drop)
+
+For Automated ML and Designer, first go to Compute and create a compute cluster
