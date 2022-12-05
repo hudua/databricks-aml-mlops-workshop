@@ -31,6 +31,7 @@ docker push amlacrhudua.azurecr.io/repo/deploy-env:v1
 
 Now go to ```cd/..``` and edit the ```endpoint.yml``` and ```deployment.yml``` files so the endpoint name is unique. Then run
 ```
+az login
 az extension add -n ml
 az account set -s "Workload1"
 az configure --defaults workspace=amlhudua group=mlops
