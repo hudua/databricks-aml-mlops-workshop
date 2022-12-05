@@ -17,4 +17,6 @@ You can find the admin login and password in Azure Container Registry in Azure P
 
 Once this is done, go to ```cd ../pipeline``` and you can edit the main.py file. Please update the subscription ID, resource group, workspace name, the compute cluster name, and the container registry name.
 
-Then simply run ```python main.py```
+Then simply run ```python main.py``` for automated model training.
+
+For model deployment, let's set up the deployment environment. Go to the deployment folder using ```cd ../..```.
