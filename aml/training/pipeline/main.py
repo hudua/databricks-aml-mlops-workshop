@@ -15,7 +15,7 @@ aml_compute = AmlCompute(ws, "testcluster")
 
 env = Environment('New_env_name')
 
-env.docker.base_image = '.azurecr.io/repo/private-env:v1'
+env.docker.base_image = '.azurecr.io/repo/train-env:v1'
 env.python.user_managed_dependencies = True
 
 # create a new runconfig object
