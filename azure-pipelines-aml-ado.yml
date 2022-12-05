@@ -1,0 +1,42 @@
+trigger:
+- main
+
+stages:
+- stage: BuildModelTraining
+  jobs:
+  - job: BuildModelTraining
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.8'
+        addToPath: true
+        architecture: 'x64'
+
+    - script: |
+        pip install azureml-core
+        pip install azureml-pipeline-core
+        pip install azureml-pipeline-steps
+        az login
+        python aml/training/pipeline/main.py
+      displayName: 'Model training'
+- stage: ReleaseModelDeployment
+  dependsOn: BuildModelTraining
+  jobs:
+  - job: ReleaseModelDeployment
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - script: |
+        az login
+        az extension add -n ml
+        az account set -s "Workload1"
+        az configure --defaults workspace=amlhudua group=mlops
+        az ml online-endpoint update  -f aml/deployment/endpoint.yml
+        az ml online-deployment update  -f aml/deployment/deployment.yml
