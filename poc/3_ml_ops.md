@@ -16,3 +16,5 @@ docker push amlacrhudua.azurecr.io/repo/train-env:v1
 You can find the admin login and password in Azure Container Registry in Azure Portal.
 
 Once this is done, go to ```cd ../pipeline``` and you can edit the main.py file. Please update the subscription ID, resource group, workspace name, the compute cluster name, and the container registry name.
+
+Then simply run ```python main.py```
