@@ -28,3 +28,8 @@ docker build -t amlacrhudua.azurecr.io/repo/deploy-env:v1 .
 az acr login -n amlacrhudua
 docker push amlacrhudua.azurecr.io/repo/deploy-env:v1
 ```
+
+Now go to ```cd/..``` and edit the ```endpoint.yml``` and ```deployment.yml``` files so the endpoint name is unique. Then run
+```
+
+```
