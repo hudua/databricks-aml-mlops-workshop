@@ -12,3 +12,4 @@ Then run these two commands:
 docker build -t amlacrhudua.azurecr.io/repo/train-env:v1 .
 docker push amlacrhudua.azurecr.io/repo/train-env:v1
 ```
+You can find the admin login and password in Azure Container Registry in Azure Portal.
