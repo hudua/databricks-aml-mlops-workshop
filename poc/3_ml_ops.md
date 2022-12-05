@@ -19,4 +19,12 @@ Once this is done, go to ```cd ../pipeline``` and you can edit the main.py file.
 
 Then simply run ```python main.py``` for automated model training.
 
-For model deployment, let's set up the deployment environment. Go to the deployment folder using ```cd ../..```.
+For model deployment, let's set up the deployment environment. Go to the deployment folder using ```cd ../../deployment/env```.
+
+Then run these two commands:
+
+```
+docker build -t amlacrhudua.azurecr.io/repo/deploy-env:v1 .
+az acr login -n amlacrhudua
+docker push amlacrhudua.azurecr.io/repo/deploy-env:v1
+```
