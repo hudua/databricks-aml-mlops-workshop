@@ -21,3 +21,5 @@ CREATE TABLE sample.sensordata
 USING DELTA
 LOCATION '/mnt/raw/delta/sensordata'
 ```
+
+And here is sample code for model training: https://storagepublicfreestuff.blob.core.windows.net/esdc/model-training.html
