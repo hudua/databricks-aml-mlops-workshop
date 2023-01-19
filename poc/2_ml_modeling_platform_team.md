@@ -37,7 +37,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1-train_te
 ```
 
 ```
-eva_model.fit(X_train, X_train)
+eva_model.fit(X_train, y_train)
 ```
 
 Now we can get a model accuracy
