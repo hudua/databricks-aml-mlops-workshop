@@ -33,7 +33,7 @@ X = np.array(model_dataset['humidity']).reshape(-1, 1)
 y = np.array(model_dataset['power']).reshape(-1, 1)
 
 train_test_split_ratio = 0.7
-X_train, X_test, X_train, y_test = train_test_split(X, y, test_size = 1-train_test_split_ratio)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1-train_test_split_ratio)
 ```
 
 ```
