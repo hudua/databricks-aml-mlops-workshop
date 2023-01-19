@@ -1,0 +1,21 @@
+trigger: none
+
+pool:
+    vmImage: ubuntu-latest
+
+stages:
+- stage: BuildModelTraining
+  jobs:
+  - job: BuildModelTraining
+
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.x'
+        addToPath: true
+        architecture: 'x64'
+
+    - script: |
+        pip install databricks-api
+        python pipelines/databricks-model-training-automation.py $(TOKENUSER) $(build.buildid)
+      displayName: 'Model training'
