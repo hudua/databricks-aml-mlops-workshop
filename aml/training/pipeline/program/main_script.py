@@ -9,8 +9,8 @@ ws = run.experiment.workspace
 dataset = Dataset.get_by_name(ws, name='dataset2')
 df = dataset.to_pandas_dataframe()
 from sklearn.linear_model import LinearRegression
-
-pickle.dump(df, open('./model.pkl', 'wb'))
+model = 1
+pickle.dump(model, open('./model.pkl', 'wb'))
 model = Model.register(workspace = ws,
                        model_name="mlopsmodeltraining",
                        model_path = "./model.pkl",
