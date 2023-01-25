@@ -3,14 +3,10 @@ import pandas as pd
 import pickle
 import numpy as np
 
-print('version of statsmodels is', statsmodels.__version__)
-
 run = Run.get_context(allow_offline=True)
 ws = run.experiment.workspace
 
 dataset = Dataset.get_by_name(ws, name='dataset2')
-print("custom module has a weird add method where add(2, 34) equals", x)
-
 df = dataset.to_pandas_dataframe()
 from sklearn.linear_model import LinearRegression
 
