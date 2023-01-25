@@ -1,8 +1,6 @@
 from azureml.core import Workspace, Datastore, Dataset, Model, Run
 import pandas as pd
 import pickle
-from testmethods import add
-import statsmodels
 import numpy as np
 
 print('version of statsmodels is', statsmodels.__version__)
@@ -10,8 +8,7 @@ print('version of statsmodels is', statsmodels.__version__)
 run = Run.get_context(allow_offline=True)
 ws = run.experiment.workspace
 
-dataset = Dataset.get_by_name(ws, name='mldata')
-x = add.add_example_weird(2, 34)
+dataset = Dataset.get_by_name(ws, name='dataset2')
 print("custom module has a weird add method where add(2, 34) equals", x)
 
 df = dataset.to_pandas_dataframe()
