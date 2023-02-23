@@ -34,6 +34,8 @@ for i in range(N):
     if status == 'SUCCESS':
         print('Job is successful')
         break
+    elif status == 'FAILED':
+        raise Exception('Job failed')
     else:
         print('Job is not successful yet, waiting 1 minute')
         time.sleep(60)
