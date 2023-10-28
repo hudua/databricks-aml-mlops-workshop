@@ -7,7 +7,7 @@ import os
 def init():
     global model
     model_path = os.path.join(
-        os.getenv("AZUREML_MODEL_DIR"), "model.pkl"
+        os.getenv("AZUREML_MODEL_DIR"), "power-gen-model/model.pkl"
     )
     # deserialize the model file back into a sklearn model
     model = pickle.load(open(model_path,'rb'))
