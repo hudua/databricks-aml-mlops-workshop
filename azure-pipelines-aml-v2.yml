@@ -1,0 +1,43 @@
+trigger: 
+- main
+
+stages:
+- stage: BuildModelTraining
+  jobs:
+  - job: BuildModelTraining
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:      
+    - task: AzureCLI@2
+      displayName: 'Run CLI for cluster creation'
+      inputs:
+        azureSubscription: 'sc'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az extension add -n ml
+          az account set -s "Sub-HubertDuan"
+          az configure --defaults workspace=amlhuduapublic group=rg
+          az ml environment create --file aml/training/train-env.yml
+          az ml job create --file aml/training/pipeline.yml
+- stage: ReleaseModelDeployment
+  # dependsOn: BuildModelTraining
+  jobs:
+  - job: ReleaseModelDeployment
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - script: |
+        az login --service-principal -u <ID> -p $(SECRET) --tenant <ID>
+        az extension add -n ml
+        az account set -s "Sub-HubertDuan"
+        docker build -t amlacrhuduad.azurecr.io/repo/deploy-env:v1 --file aml/deployment/env/Dockerfile .
+        az acr login -n amlacrhuduad
+        docker push amlacrhuduad.azurecr.io/repo/deploy-env:v1
+        az configure --defaults workspace=amlhuduapublic group=rg
+        az ml online-endpoint update  -f aml/deployment/endpoint.yml
+        az ml online-deployment update  -f aml/deployment/deployment.yml
