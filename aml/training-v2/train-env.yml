@@ -1,0 +1,5 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: power-gen-train-env
+image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+conda_file: env/train.yml
+description: Environment created from a Docker image plus Conda environment to train power gen model.
