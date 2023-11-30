@@ -19,21 +19,5 @@ stages:
 
     - script: |
         pip install databricks-api
-        python pipeline/databricks-model-training-automation.py $(TOKEN)
+        python pipeline/databricks-model-training-automation.py $(TOKEN) $(Build.BuildId)
       displayName: 'Model training'
-- stage: ReleaseModelDeployment
-  dependsOn: BuildModelTraining
-  jobs:
-  - job: ReleaseModelDeployment
-
-    pool:
-      vmImage: ubuntu-latest
-
-    steps:
-    - script: |
-        az login
-        az extension add -n ml
-        az account set -s "<subscription name>"
-        az configure --defaults workspace=amlworkshopacename group=rgname
-        az ml online-endpoint create  -f aml/endpoint.yml
-        az ml online-deployment create  -f aml/deployment.yml
